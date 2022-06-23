@@ -1,4 +1,4 @@
-import { default as PYINInit, wasmPYin } from './pkg/pyin';
+import { default as PYINInit, wasmPYin } from './pkg/pyin.js';
 
 /**
  * Configuration settings for user media.
@@ -24,8 +24,10 @@ export interface WasmPitchMediaTrackConstraints {
   filterQualityFactor?: number;
 }
 
+type PYINCallback = (freq: number, voicedConfidence: number) => void;
+
 export class PYINPitch {
-  private callbacks: ((freq: number, voicedConfidence: number) => void)[] = [];
+  private callbacks: PYINCallback[] = [];
 
   private mediaStream: MediaStream | undefined;
 
@@ -217,11 +219,11 @@ export class PYINPitch {
    * @param {(freq: number) => any} callback argument freq is -1 when input is so soft that
    * a pitch cannot be detected
    */
-  addListener(callback: (freq: number) => void) {
+  addListener(callback: PYINCallback) {
     this.callbacks.push(callback);
   }
 
-  removeListener(callback: (freq: number) => void) {
+  removeListener(callback: PYINCallback) {
     const index = this.callbacks.indexOf(callback);
     if (index === -1) return false;
     this.callbacks.splice(index, 1);

@@ -1,3 +1,13 @@
+#[path = "./pad.rs"]
+mod pad;
+
+#[path = "./roll.rs"]
+mod roll;
+
+#[path = "./windows.rs"]
+mod windows;
+
+
 use std::cmp::Ord;
 use std::fmt::Debug;
 use std::ops::{Add, DivAssign, Mul};
@@ -5,9 +15,11 @@ use std::ops::{Add, DivAssign, Mul};
 use ndarray::{prelude::*, ScalarOperand, Zip};
 use realfft::num_traits::{Float, FloatConst, FromPrimitive};
 
-use crate::pad::{Pad, PadMode};
-use crate::roll::Roll;
-use crate::windows::{calc_normalized_win, WindowType};
+use pad::{Pad, PadMode};
+use roll::Roll;
+use windows::{calc_normalized_win, WindowType as LocalWindowType};
+
+pub type WindowType = LocalWindowType;
 
 pub(crate) fn parabolic_interpolation<A: Float + Add + Mul + ScalarOperand>(
     frames: ArrayView2<A>,

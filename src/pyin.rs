@@ -1,3 +1,15 @@
+#[path = "./pad.rs"]
+mod pad;
+
+#[path = "./util.rs"]
+mod util;
+
+#[path = "./viterbi.rs"]
+mod viterbiCrate;
+
+#[path = "./windows.rs"]
+mod windows;
+
 use std::cmp::Ord;
 use std::iter;
 use std::mem::MaybeUninit;
@@ -15,10 +27,11 @@ use realfft::{
 };
 use statrs::distribution::{Beta, ContinuousCDF};
 
-use crate::pad::{Framing, Pad, PadMode};
-use crate::util::*;
-use crate::viterbi::viterbi;
-use crate::windows::WindowType;
+pub use pad::{Framing, PadMode};
+use pad::{Pad};
+use util::*;
+use viterbiCrate::viterbi;
+// use windows::{WindowType};
 
 /// pYIN algorithm executor.
 ///
@@ -165,7 +178,7 @@ where
         // Construct transition matrix.
         // Construct the within voicing transition probabilities
         let max_transition_rate = 35.92;
-        let switch_prob = A::from(0.01).unwrap();
+        let switch_prob = A::from(0.01 as f64).unwrap();
         let max_semitones_per_frame =
             (max_transition_rate * 12.0 * hop_length as f64 / sr as f64).round() as usize;
         let transition_width = max_semitones_per_frame * n_bins_per_semitone + 1;

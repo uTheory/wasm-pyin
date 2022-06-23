@@ -1,0 +1,30 @@
+{
+  "name": "wasm-pyin",
+  "version": "1.0.2",
+  "description": "pYIN pitch detection algorithm for WASM. Forked from https://github.com/Sytronik/pyin-rs",
+  "main": "pgk/pyin.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "wasm-pack build --target web --release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uTheory/wasm-pyin.git"
+  },
+  "keywords": [
+    "audio",
+    "pitch",
+    "voice",
+    "pyin",
+    "wasm"
+  ],
+  "author": "uTheory",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uTheory/wasm-pyin/issues"
+  },
+  "homepage": "https://github.com/uTheory/wasm-pyin#readme"
+}

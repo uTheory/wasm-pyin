@@ -5,7 +5,7 @@ use rustfft::num_traits::{Float, FloatConst, FromPrimitive, ToPrimitive};
 
 #[allow(dead_code)]
 #[derive(Clone, Copy)]
-pub(crate) enum WindowType {
+pub enum WindowType {
     Hann,
     Blackman,
     Triangle,

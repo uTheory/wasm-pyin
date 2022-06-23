@@ -2,7 +2,7 @@
 authors = ["Sytronik <sytronik210@gmail.com>"]
 categories = ["algorithms"]
 description = "pYIN pitch detection algorithm for WASM. Forked from https://github.com/Sytronik/pyin-rs"
-edition = "2022"
+edition = "2021"
 exclude = ["/samples", "/include", "/test"]
 keywords = ["audio", "pitch", "speech", "voice", "wasm"]
 license = "MIT"

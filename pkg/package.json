@@ -1,0 +1,28 @@
+{
+  "name": "pyin",
+  "collaborators": [
+    "Sytronik <sytronik210@gmail.com>"
+  ],
+  "description": "pYIN pitch detection algorithm for WASM. Forked from https://github.com/Sytronik/pyin-rs",
+  "version": "1.0.2",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/utheory/wasm-pyin"
+  },
+  "files": [
+    "pyin_bg.wasm",
+    "pyin.js",
+    "pyin.d.ts"
+  ],
+  "module": "pyin.js",
+  "types": "pyin.d.ts",
+  "sideEffects": false,
+  "keywords": [
+    "audio",
+    "pitch",
+    "speech",
+    "voice",
+    "wasm"
+  ]
+}

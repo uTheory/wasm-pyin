@@ -24,7 +24,7 @@ export interface WasmPitchMediaTrackConstraints {
   filterQualityFactor?: number;
 }
 
-export default class PYINPitch {
+export class PYINPitch {
   private callbacks: ((freq: number, voicedConfidence: number) => void)[] = [];
 
   private mediaStream: MediaStream | undefined;
@@ -114,7 +114,7 @@ export default class PYINPitch {
     const bufferLength = 1024;
     this.processorNode = this.audioContext.createScriptProcessor(bufferLength, 1, 1);
     this.processorNode.onaudioprocess = (evt) => {
-      if (!this.audioContext) throw Error('Audio context required to process audio.')
+      if (!this.audioContext) throw Error('Audio context required to process audio.');
       const pcmArray = evt.inputBuffer.getChannelData(0);
 
       try {

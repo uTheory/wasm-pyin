@@ -26,5 +26,9 @@
   "bugs": {
     "url": "https://github.com/uTheory/wasm-pyin/issues"
   },
-  "homepage": "https://github.com/uTheory/wasm-pyin#readme"
+  "homepage": "https://github.com/uTheory/wasm-pyin#readme",
+  "devDependencies": {
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
+  }
 }

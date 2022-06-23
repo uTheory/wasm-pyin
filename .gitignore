@@ -7,3 +7,5 @@ test_pyin
 
 *.npy
 *.wav
+
+node_modules

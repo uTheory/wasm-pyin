@@ -1,6 +1,9 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
+*/
+export function init_console(): void;
+/**
 * @param {Float32Array} wav
 * @param {number} sr
 * @param {number} frame_length
@@ -16,9 +19,11 @@ export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembl
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
   readonly wasmPYin: (a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number, i: number) => void;
+  readonly init_console: () => void;
   readonly __wbindgen_add_to_stack_pointer: (a: number) => number;
   readonly __wbindgen_malloc: (a: number) => number;
   readonly __wbindgen_free: (a: number, b: number) => void;
+  readonly __wbindgen_realloc: (a: number, b: number, c: number) => number;
 }
 
 /**

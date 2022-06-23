@@ -11,6 +11,7 @@ use wasm_bindgen::prelude::*;
 
 use pyin::{PYINExecutor, Framing, PadMode};
 
+#[wasm_bindgen]
 pub extern fn init_console() {
   console_error_panic_hook::set_once();
 }

@@ -1,4 +1,4 @@
-import { default as PYINInit, wasmPYin } from './pkg/pyin.js';
+import { default as PYINInit, wasmPYin, init_console } from './pkg/pyin.js';
 
 /**
  * Configuration settings for user media.
@@ -78,6 +78,7 @@ export class PYINPitch {
       // Load the wasm.
       try {
         await PYINInit(pathToWasm);
+        init_console();
         resolve();
       } catch (err) {
         console.error('Error loading wasm for pyin-pitch.');

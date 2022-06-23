@@ -1,3 +1,5 @@
+extern crate console_error_panic_hook;
+
 mod pyin;
 mod pad;
 
@@ -9,9 +11,12 @@ use wasm_bindgen::prelude::*;
 
 use pyin::{PYINExecutor, Framing, PadMode};
 
+pub extern fn init_console() {
+  console_error_panic_hook::set_once();
+}
+
 // #[derive(Parser)]
 // #[clap(author, version, about)]
-
 
 #[wasm_bindgen]
 pub extern fn wasmPYin(
